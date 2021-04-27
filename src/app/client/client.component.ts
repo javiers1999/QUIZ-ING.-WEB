@@ -15,7 +15,6 @@ export class CLIENTComponent implements OnInit {
 
   lista:Array<String>=[];
 
-
   constructor(public fb:FormBuilder) {
       this.semaforo=this.fb.group({
         titulo:['',Validators.required],
