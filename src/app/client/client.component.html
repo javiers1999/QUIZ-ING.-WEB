@@ -1,0 +1,44 @@
+<header>
+    <h1>Semaforo Tareas</h1>
+
+    <div id="I" class="c"></div>INICIADA
+    <div id="E" class="c"></div>EN PROCESO
+    <div id="T" class="c"></div>TERMINADA
+</header>
+
+<body>
+    <form [formGroup]="semaforo" (ngSubmit)="crear()" novalidate>
+        <ul id="">
+            <li>
+                <label for="titulo">Titulo: </label>
+                <input formControlName="titulo" type="text">
+            </li>
+    
+            <li>
+                <label for="estado">Estado: </label>
+                <select formControlName="estado">
+                    <option id="opcion1" value="Iniciada">Iniciada</option>
+                    <option id="opcion2" value="En proceso">En Proceso</option>
+                    <option id="opcion3" value="Terminada">Terminada</option>
+                </select>
+            </li>
+    
+            <li>
+                <button type="submit" [disabled]="semaforo.invalid">agregar</button>
+                <button type="button" (click)="Eliminar()">Eliminar</button>
+            </li>
+        </ul>
+
+        <ul class="tareas">
+            <li id="col1" *ngFor="let item of lista">{{item}}</li>
+        </ul>
+
+        <ul class="tareas">
+            <li id="col2" *ngFor="let item of lista">{{item}}</li>
+        </ul>
+
+        <ul class="tareas">
+            <li id="col3" *ngFor="let item of lista">{{item}}</li>
+        </ul>
+    </form>
+</body>
