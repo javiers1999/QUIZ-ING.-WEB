@@ -7,13 +7,14 @@
 </header>
 
 <body>
-    <form [formGroup]="semaforo" (ngSubmit)="crear()" novalidate>
-        <input type="hidden" formControlName="id" [value]="valor()">
+    <form [formGroup]="semaforo" (ngSubmit)="crear(this.idN)" novalidate>
+        <input type="hidden" formControlName="id" [value]="valor()" name="idN">
         <input type="hidden" formControlName="listId" [value]="valorLista()">
-        <ul id="tittle">
+
+        <ul id="tittle">    
             <li>
                 <label for="titulo">Titulo: </label>
-                <input formControlName="titulo" type="text">
+                <input formControlName="titulo" type="text" [value]="obtenerT()">
             </li>
     
             <li>
@@ -34,7 +35,7 @@
         </ul>
 
         <ul class="tareas">
-            <li id="col1" *ngFor="let item of lista; index as i" (click)="edit(i,1)">{{item}}<button id="B">EDIT</button></li>
+            <li id="col1" *ngFor="let item of lista; index as i" (click)="edit(i,1)">{{item}}</li>
         </ul>
 
         <ul class="tareas">

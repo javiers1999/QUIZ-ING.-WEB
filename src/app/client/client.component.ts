@@ -9,14 +9,13 @@ import { FormGroup, FormBuilder, Validators} from '@angular/forms';
 
 export class CLIENTComponent implements OnInit {
 
-  editValue = "";
+  editValue:any = "";
   editValueList = "";
   semaforo:FormGroup;
   titulo:any;
   estado:any;
-  i:any;
-  
   id:any;
+  idN:any = -1;
 
   lista:Array<String>=[];
   lista2:Array<String>=[];
@@ -35,20 +34,21 @@ export class CLIENTComponent implements OnInit {
     this.titulo=this.semaforo.get("titulo") as FormGroup;
     this.estado=this.semaforo.get("estado") as FormGroup;
     this.id=this.semaforo.get("id") as FormGroup;
-    this.i=this.semaforo.get("i") as FormGroup;
   }
 
-  crear(){
-    if(this.estado.value == "Iniciada"){
-      this.lista.push(this.titulo.value);
-    }else if(this.estado.value == "EnProceso"){
-      this.lista2.push(this.titulo.value);
-    }else if(this.estado.value == "Terminada"){
-      this.lista3.push(this.titulo.value);
+  crear(idN:number){ 
+    if(idN == -1){
+      if(this.estado.value == "Iniciada"){
+        this.lista.push(this.titulo.value);
+      }else if(this.estado.value == "EnProceso"){
+        this.lista2.push(this.titulo.value);
+      }else if(this.estado.value == "Terminada"){
+        this.lista3.push(this.titulo.value);
+      }
+    }else{
+      this.lista[idN] = this.titulo.value;
     }
-
-    this.titulo.reset();
-    this.estado.reset();
+    this.semaforo.reset();
   }
 
   Eliminar(){
@@ -70,5 +70,12 @@ export class CLIENTComponent implements OnInit {
   edit(i:any, j:any){
     this.editValue = i;
     this.editValueList = j;
+  }
+
+  obtenerT(){
+    if (this.lista[this.editValue] == null){
+      return "";
+    }
+    return this.lista[this.editValue];
   }
 }

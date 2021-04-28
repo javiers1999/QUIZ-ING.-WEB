@@ -2,23 +2,28 @@ header{
     display: inline-flex;
     text-align: center;
     font-size: 20px;
+    background-color: rgb(170, 240, 240);
+    width: 100%;
 }
 
 h1{
     font-size: 50px;
+    margin-left: 10px;
 }
 
 input{
     font-size: 30px;
+    width: 25%;
 }
 
 select{
     font-size: 30px;
+    width: 25%;
 }
 
 div.c{
-    width: 20px;
-    height: 20px;
+    width: 50px;
+    height: 50px;
     border-radius: 30px;
     display: inline-block;
     border:black 3px solid;
@@ -42,6 +47,8 @@ div#T{
 body{
     text-align: center;
     font-size: 40px;
+    background-color: rgb(161, 161, 238);
+    width: 100%;
 }
 
 button{
@@ -76,10 +83,4 @@ ul.tareas li#col3{
     background-color: green;
     text-align: center;
     width: 500px;
-}
-
-button#B{
-    float: right;
-    margin-top: 10px;
-    margin-right:10px;
 }
